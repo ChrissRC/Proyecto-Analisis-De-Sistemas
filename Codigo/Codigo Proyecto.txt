@@ -1,0 +1,54 @@
+#include <Servo.h>   //librerias del controlador del servomotor
+Servo servo;     
+int trigPin = 3;    
+int echoPin = 4;   
+int servoPin = 2;
+
+long duracion, distancia, promedio;   
+
+long aver[3];
+
+void setup() {       
+    Serial.begin(9600);
+    servo.attach(servoPin);  
+    pinMode(trigPin, OUTPUT);  
+    pinMode(echoPin, INPUT);  
+} 
+
+void measure() {  
+ digitalWrite(10,HIGH);
+digitalWrite(trigPin, LOW);
+delayMicroseconds(5);
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(15);
+digitalWrite(trigPin, LOW);
+pinMode(echoPin, INPUT);
+duracion = pulseIn(echoPin, HIGH);
+distancia = duracion/29.1/2;    //obtiene distancia
+
+}
+void loop() { 
+  for (int i=0;i<=2;i++) {   
+    measure();               
+   aver[i]=distancia;            
+    delay(10);               
+  }
+ distancia=(aver[0]+aver[1]+aver[2])/3;   
+
+if ( distancia<60 ) { 
+Serial.print("Se activo el basurero\n");
+servo.write(100);
+delay(2000);
+Serial.print("Se bajo la tapa del basurero\n");
+servo.write(0);
+delay(2000);
+}
+else {
+ servo.write(0);
+delay(3000);  
+ }
+
+Serial.print(distancia);
+Serial.print("\n");
+delay(30);
+}
