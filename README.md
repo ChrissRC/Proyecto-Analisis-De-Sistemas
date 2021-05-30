@@ -1,5 +1,4 @@
 # Proyecto-Analisis-De-Sistemas
-Esta repositorio se utilizara para llevar gestion de la creacion del proyecto de analisis de sistemas
 
 INTRODUCCION:
 En este documento se presentara la siguiente idea, que es un basurero que se controla 
