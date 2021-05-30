@@ -24,3 +24,5 @@ proyectos con un gran volumen de cambios de última hora, en donde la incertidum
 DESCRIPCION DEL PROYECTO:
 El basurero funciona por medio del sensor, si una persona pasa la mano por el sensor este al detectar 
 la distancia se abrirá y después de unos 5 segundos, se cerrara hasta que alguien pase la mano otra vez.
+
+![image](https://user-images.githubusercontent.com/54300711/120088162-3836fb00-c0ab-11eb-8d31-f18c74802363.png)
